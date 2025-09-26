@@ -3,18 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
-class BrandController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-
-        $data = Brand::latest()->get();
-        return view('backend.brand.index', compact('data'));
+        $data = Tag::latest()->get();
+        return view('backend.tag.index', compact('data'));
     }
 
     /**
@@ -22,7 +22,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        return view('backend.brand.create');
+        return view('backend.tag.create');
     }
 
     /**
@@ -31,36 +31,28 @@ class BrandController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "name" => "required",
-
-
+            "name" => "required"
         ]);
 
-        $files = "";
-
-        if ($request->hasFile('logo')) {
-            $files =  $this->fileUpload($request->file("logo"), "media/brand/");
-        }
-
-
-        Brand::create([
+        Tag::create([
             "name" => $request->name,
             "slug_name" => $this->makeSlug($request->name),
-            "logo" => $files
         ]);
-
-        return back()->with('success', 'Brand created successfully');
+        return back()->with('success', 'Tag created successfully');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Brand $brand) {}
+    public function show(Tag $tag)
+    {
+        //
+    }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Brand $brand)
+    public function edit(Tag $tag)
     {
         //
     }
@@ -68,7 +60,7 @@ class BrandController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Brand $brand)
+    public function update(Request $request, Tag $tag)
     {
         //
     }
@@ -76,9 +68,9 @@ class BrandController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Brand $brand)
+    public function destroy(Tag $tag)
     {
-        $brand->delete();
-        return back()->with('success', 'Brand deleted successfully');
+        $tag->delete();
+        return back()->with('success', 'Tag deleted successfully');
     }
 }

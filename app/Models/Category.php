@@ -5,12 +5,12 @@ namespace App\Models;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 
-class Brand extends Model
+class Category extends Model
 {
-    protected $fillable = ['name', 'slug_name', 'logo'];
+    protected $fillable = ['name', 'slug_name', 'photo'];
 
     public function product()
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsToMany(Product::class);
     }
 }

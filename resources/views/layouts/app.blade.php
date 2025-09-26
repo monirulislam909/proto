@@ -73,6 +73,8 @@
 </script>
 <a class="envato-buy-redirect" href="https://themeforest.net/checkout/from_item/4106987?license=regular&amp;support=bundle_6month&amp;ref=Okler" target="_blank" data-toggle="tooltip" data-placement="right" title="Buy Porto"><i class="fas fa-shopping-cart"></i></a>
 <a class="demos-redirect" href="index.html#demos" data-toggle="tooltip" data-placement="right" title="Demos"><img src="img/icons/demos-redirect.png" class="img-fluid" /></a>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 
 <script src="{{ asset('js/views/view.shop.js') }}"></script>
 

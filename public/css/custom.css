@@ -1,0 +1,4 @@
+.alert .close-icon {
+    margin-left: auto; /* push to right */
+    cursor: pointer;
+}

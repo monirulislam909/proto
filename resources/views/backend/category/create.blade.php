@@ -18,15 +18,15 @@
 
 <div class="col-lg-9 order-1 order-lg-2">
 
-<h4> Create new brand</h4>
-<a class="btn btn-sm btn-success" href="{{ route('brand.index') }}">Back</a> <br><br>
+<h4> Create new Category</h4>
+<a class="btn btn-sm btn-success" href="{{ route('category.index') }}">Back</a> <br><br>
 @include('backend.components.message')
-<form action="{{ route('brand.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
 
     <input class="form-control" type="text" name="name" id="" placeholder="name"><br>
 
-    <input class="form-control" type="file" name="logo" ><br>
+    <input class="form-control" type="file" name="photo" ><br>
     <input class="btn btn-success" type="submit" value="create">
 </form>
 
