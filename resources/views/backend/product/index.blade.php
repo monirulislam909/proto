@@ -44,10 +44,10 @@
         <td> {{$item->regular_price}}</td>
         <td> {{$item->sale_price}}</td>
         <td>
-        @foreach ($item->galleries as $gallery )
 
-        <img src="{{ URL::to('media/gallery/product',$gallery->file_name) }}" alt="" height="50px" width="auto">
-        @endforeach
+
+        <img src="{{ URL::to('media/gallery/product',$item->galleries[0]->file_name) }}" alt="" height="50px" width="auto">
+
         </td>
         <td> {{\carbon\Carbon::parse($item->created_at)->diffForHumans()}}</td>
         <td class="d-flex justify-content-around " >

@@ -66,8 +66,8 @@ class ProductController extends Controller
             }
         }
 
-        $product->tag()->attach($request->tag);
-        $product->category()->attach($request->category);
+        $product->tags()->attach($request->tag);
+        $product->categories()->attach($request->category);
 
         return back()->with("success", "Product Created successfully");
     }

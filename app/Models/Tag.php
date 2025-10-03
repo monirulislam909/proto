@@ -10,7 +10,7 @@ class Tag extends Model
     protected $fillable = ['name', 'slug_name',];
 
 
-    public function product()
+    public function products()
     {
         return $this->belongsToMany(Product::class);
     }

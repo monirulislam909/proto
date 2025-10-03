@@ -2,3 +2,7 @@
     margin-left: auto; /* push to right */
     cursor: pointer;
 }
+
+product-thumb-info {
+    height: 220px !important;
+}

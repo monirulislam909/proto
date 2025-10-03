@@ -11,7 +11,10 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 
-Route::get('/', [FontentController::class, "fontend"]);
+Route::get('shop', [FontentController::class, "fontend"])->name('shop.product');
+Route::get('shop/{slug}', [FontentController::class, "single_product"])->name('single.product');
+Route::get('category/{slug}', [FontentController::class, "fontend"])->name('category.product');
+Route::get('tag/{slug}', [FontentController::class, "fontend"])->name('tag.product');
 
 
 Route::resource('brand', BrandController::class);
