@@ -15,6 +15,8 @@ Route::get('shop', [FontentController::class, "fontend"])->name('shop.product');
 Route::get('shop/{slug}', [FontentController::class, "single_product"])->name('single.product');
 Route::get('category/{slug}', [FontentController::class, "fontend"])->name('category.product');
 Route::get('tag/{slug}', [FontentController::class, "fontend"])->name('tag.product');
+Route::get('brand/{slug}', [FontentController::class, "fontend"])->name('brand.product');
+Route::get('search', [FontentController::class, "search"])->name('search.product');
 
 
 Route::resource('brand', BrandController::class);

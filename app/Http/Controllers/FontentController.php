@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Tag;
 use App\Models\Product;
 use App\Models\Category;
@@ -21,9 +22,10 @@ class FontentController extends Controller
 
         //  product dhore anbe
 
-        $category = Category::get();
-        $tag = Tag::get();
-        $product = Product::get();
+        $category = Category::latest()->get();
+        $tag = Tag::latest()->get();
+        $product = Product::latest()->take(9)->get();
+        $brand = Brand::take(10)->get();
 
         // category,tag ,onujae product show korabe
 
@@ -33,13 +35,16 @@ class FontentController extends Controller
                 $product = Category::where('slug_name', $slug)->firstOrFail()->products;
             } elseif ($routeName == "tag.product") {
                 $product = Tag::where('slug_name', $slug)->firstOrFail()->products;
+            } elseif ($routeName == "brand.product") {
+                $product = Brand::where('slug_name', $slug)->firstOrFail()->products;
             }
         }
-        return view('fontend.shop', compact('category', 'tag', 'product'));
+        return view('fontend.shop', compact('category', 'tag', "brand", 'product'));
     }
 
     public function single_product($slug)
     {
+        $brand = Brand::take(5)->get();
         $category = Category::get();
         $tag = Tag::get();
         $single_product =  Product::where('slug', $slug)->firstOrFail();
@@ -47,7 +52,30 @@ class FontentController extends Controller
         // related product
         $related =  Category::find($single_product->categories[0]->id)->products;
 
-        return view('fontend.single', compact('single_product', "category", "tag", 'related'));
+        return view('fontend.single', compact('single_product', "category", "tag", 'related', 'brand'));
+    }
+
+
+
+
+
+    // search form er maddome product show
+
+
+    public function search(Request $request)
+    {
+
+        $keyword = $request->keyword;
+
+
+        $product = Product::where('title', 'LIKE', "%{$keyword}%")->get();
+
+        $category = Category::latest()->get();
+        $tag = Tag::latest()->get();
+
+        $brand = Brand::take(10)->get();
+
+        return view('fontend.search', compact('category', 'tag', "brand", 'product'));
     }
 
     // public function category($slug)

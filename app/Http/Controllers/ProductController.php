@@ -38,9 +38,16 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $name_check =   Product::where('name', $request->name)->firstOrFail();
+
+        $product_slug = $this->makeSlug($request->title);
+        if ($name_check) {
+            $product_slug = $this->makeSlug($request->title . " " . rand(1, 100));
+        }
+
         $product = Product::create([
             "title" => $request->title,
-            "slug" => $this->makeSlug($request->title),
+            "slug" => $product_slug,
             "short-dsc" => $request->short_dsc,
             "long_dsc" => $request->long_dsc,
             "subtitle" => $request->subtitle,
