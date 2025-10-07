@@ -11,15 +11,15 @@
 <div role="main" class="main shop py-4">
 <div class="container">
 <div class="row">
-<div class="col-lg-3">
+{{-- <div class="col-lg-3"> --}}
 
 
-@include('layouts.components.fontsidebar')
+{{-- @include('layouts.components.fontsidebar') --}}
 
-</div>
+{{-- </div> --}}
 
 
-<div class="col-lg-9">
+<div class="col-lg-12">
 <div class="row">
 <div class="col-lg-6">
 <div class="thumb-gallery-wrapper">

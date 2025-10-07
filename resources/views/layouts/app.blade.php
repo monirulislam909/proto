@@ -99,6 +99,47 @@
 
 <script src="{{ asset('js/theme.init.js') }}"></script>
 <script defer src="../../../../static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"r":1,"version":"2021.1.1","rayId":"616739315f15e270","si":10}'></script>
+
+
+
+
+<script>
+$(document).ready(function(){
+
+    // Product Detail Main Gallery
+    $('.thumb-gallery-detail').owlCarousel({
+        items: 1,
+        loop: true,
+        nav: true,
+        dots: false,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        navText: ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>']
+    });
+
+    // Product Detail Thumbs
+    $('.thumb-gallery-thumbs').owlCarousel({
+        items: 4,
+        margin: 10,
+        dots: false,
+        nav: true,
+        autoplay: false
+    });
+
+    // Related Products Carousel (if manual)
+    $('.products .owl-carousel').owlCarousel({
+        loop: false,
+        autoplay: false,
+        items: 4,
+        nav: true,
+        dots: false,
+        margin: 20,
+        autoplayHoverPause: true,
+        autoHeight: true
+    });
+});
+</script>
+
 </body>
 
 <!-- Mirrored from www.okler.net/previews/porto/8.3.0/shop-3-columns-sidebar-left.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 24 Jan 2021 05:16:43 GMT -->
